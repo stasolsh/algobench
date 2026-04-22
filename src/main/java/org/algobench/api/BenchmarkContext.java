@@ -1,4 +1,4 @@
 package org.algobench.api;
 
-public class BenchmarkContext {
+public record BenchmarkContext(int size, long seed, int iteration, int fork) {
 }

@@ -1,5 +1,6 @@
 package org.algobench.api;
+
 @FunctionalInterface
-public interface ResultValidator<I> {
+public interface InputGenerator<I> {
     I generateInput(BenchmarkContext context) throws Exception;
 }

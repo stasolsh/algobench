@@ -1,4 +1,6 @@
 package org.algobench.api;
 
-public interface ResultValidator {
+@FunctionalInterface
+public interface ResultValidator<R, T> {
+    void validate(R input, T output) throws Exception;
 }
