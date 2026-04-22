@@ -17,7 +17,31 @@ public final class BenchmarkConfig {
         this.copyInputPerRan = builder.copyInputPerRan;
     }
 
-    private static final class Builder {
+    public int getWarmupIterations() {
+        return warmupIterations;
+    }
+
+    public int getMeasurementIterations() {
+        return measurementIterations;
+    }
+
+    public int getForks() {
+        return forks;
+    }
+
+    public List<Integer> getSizes() {
+        return sizes;
+    }
+
+    public boolean isCopyInputPerRan() {
+        return copyInputPerRan;
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static final class Builder {
         private int warmapIterations = 5;
         private int measuredIterations = 10;
         private int forks = 1;
