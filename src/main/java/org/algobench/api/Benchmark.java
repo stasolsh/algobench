@@ -21,6 +21,34 @@ public final class Benchmark<K, L> {
         this.lifecycle = builder.lifecycle;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public List<Algorithm<K, L>> getAlgorithms() {
+        return algorithms;
+    }
+
+    public BenchmarkConfig getConfig() {
+        return config;
+    }
+
+    public InputGenerator<K> getInputGenerator() {
+        return inputGenerator;
+    }
+
+    public ResultValidator<K, L> getValidator() {
+        return validator;
+    }
+
+    public BenchmarkLifecycle<K> getLifecycle() {
+        return lifecycle;
+    }
+
+    public static <K, L> Builder<K, L> builder(String name) {
+        return new Builder<>(name);
+    }
+
     public static final class Builder<K, L> {
         private final String name;
         private final List<Algorithm<K, L>> algorithms = new ArrayList<>();

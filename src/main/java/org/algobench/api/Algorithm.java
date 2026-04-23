@@ -1,7 +1,7 @@
 package org.algobench.api;
 
-public interface Algorithm<T, K> {
+public interface Algorithm<K, L> {
     String name();
 
-    T run(K input) throws Exception;
+    L run(K input) throws Exception;
 }
