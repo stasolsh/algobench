@@ -64,7 +64,12 @@ public final class Benchmark<K, L> {
         }
 
         public Builder<K, L> addAlgorithm(Algorithm<K, L> algorithm) {
-            algorithms.add(Objects.requireNonNull(algorithm));
+            this.algorithms.add(Objects.requireNonNull(algorithm));
+            return this;
+        }
+
+        public Builder<K, L> addAlgorithms(List<Algorithm<K, L>> algorithms) {
+            this.algorithms.addAll(algorithms);
             return this;
         }
 
