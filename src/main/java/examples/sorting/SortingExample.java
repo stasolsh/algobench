@@ -1,5 +1,6 @@
 package examples.sorting;
 
+import discovery.AlgorithmScanner;
 import org.algobench.api.Benchmark;
 import org.algobench.api.BenchmarkConfig;
 import org.algobench.api.InputGenerator;
@@ -10,13 +11,16 @@ import runner.DefaultBenchmarkRunner;
 import java.util.List;
 import java.util.Random;
 
-import static examples.sorting.SortAlgorithms.all;
 
 public class SortingExample {
 
     public static void main(String[] args) throws Exception {
         Benchmark<int[], int[]> benchmark = Benchmark.<int[], int[]>builder("Sorting Benchmark")
-                .addAlgorithms(all())
+                .addAlgorithms(
+                        AlgorithmScanner.findAlgorithms(
+                                "examples.sorting",
+                                AbstractIntArraySortAlgorithm.class)
+                )
                 .inputGenerator(getInputGenerator())
                 .validator(getResultValidator())
                 .config(getBenchmarkConfig())

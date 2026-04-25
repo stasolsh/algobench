@@ -1,7 +1,10 @@
 package examples.sorting;
 
+import discovery.BenchmarkAlgorithm;
+
 import java.util.Arrays;
 
+@BenchmarkAlgorithm
 public final class JdkArraySortAlgorithm extends AbstractIntArraySortAlgorithm {
 
     public JdkArraySortAlgorithm() {

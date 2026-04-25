@@ -1,5 +1,8 @@
 package examples.sorting;
 
+import discovery.BenchmarkAlgorithm;
+
+@BenchmarkAlgorithm
 public final class HeapSortAlgorithm extends AbstractIntArraySortAlgorithm {
 
     public HeapSortAlgorithm() {
