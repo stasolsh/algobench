@@ -1,5 +1,8 @@
 package examples.sorting;
 
+import discovery.BenchmarkAlgorithm;
+
+@BenchmarkAlgorithm
 public class BubbleSortAlgorithm extends AbstractIntArraySortAlgorithm {
 
     public BubbleSortAlgorithm() {
