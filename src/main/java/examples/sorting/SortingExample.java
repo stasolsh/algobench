@@ -1,17 +1,23 @@
 package examples.sorting;
 
 import discovery.AlgorithmScanner;
+import discovery.BenchmarkConfigResolver;
+import discovery.BenchmarkSettings;
 import org.algobench.api.Benchmark;
-import org.algobench.api.BenchmarkConfig;
 import org.algobench.api.InputGenerator;
 import org.algobench.api.ResultValidator;
 import report.ConsoleReportFormatter;
 import runner.DefaultBenchmarkRunner;
 
-import java.util.List;
 import java.util.Random;
 
 
+@BenchmarkSettings(
+        warmupIterations = 3,
+        measurementIterations = 5,
+        forks = 2,
+        sizes = {100, 1000, 3000}
+)
 public class SortingExample {
 
     public static void main(String[] args) throws Exception {
@@ -23,21 +29,12 @@ public class SortingExample {
                 )
                 .inputGenerator(getInputGenerator())
                 .validator(getResultValidator())
-                .config(getBenchmarkConfig())
+                .config(BenchmarkConfigResolver.resolve(SortingExample.class))
                 .build();
 
         var result = new DefaultBenchmarkRunner().run(benchmark);
         var formatter = new ConsoleReportFormatter();
         System.out.println(formatter.format(result));
-    }
-
-    private static BenchmarkConfig getBenchmarkConfig() {
-        return BenchmarkConfig.builder()
-                .warmupIterations(3)
-                .measurementIterations(5)
-                .forks(2)
-                .sizes(List.of(100, 1000, 3000))
-                .build();
     }
 
     private static ResultValidator<int[], int[]> getResultValidator() {
