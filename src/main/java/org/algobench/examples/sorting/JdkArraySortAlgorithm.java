@@ -1,6 +1,6 @@
-package examples.sorting;
+package org.algobench.examples.sorting;
 
-import discovery.BenchmarkAlgorithm;
+import org.algobench.discovery.BenchmarkAlgorithm;
 
 import java.util.Arrays;
 

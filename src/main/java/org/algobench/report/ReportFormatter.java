@@ -1,4 +1,4 @@
-package report;
+package org.algobench.report;
 
 import org.algobench.api.BenchmarkResult;
 
