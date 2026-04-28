@@ -1,4 +1,4 @@
-package discovery;
+package org.algobench.discovery;
 
 import io.github.classgraph.ClassGraph;
 import io.github.classgraph.ScanResult;

@@ -1,4 +1,4 @@
-package examples.sorting;
+package org.algobench.examples.sorting;
 
 import org.algobench.api.Algorithm;
 

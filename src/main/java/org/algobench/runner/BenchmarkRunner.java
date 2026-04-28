@@ -1,4 +1,4 @@
-package runner;
+package org.algobench.runner;
 
 import org.algobench.api.Benchmark;
 import org.algobench.api.BenchmarkResult;

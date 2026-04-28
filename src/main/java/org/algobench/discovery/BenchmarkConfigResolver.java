@@ -1,4 +1,4 @@
-package discovery;
+package org.algobench.discovery;
 
 import org.algobench.api.BenchmarkConfig;
 

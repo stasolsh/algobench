@@ -1,13 +1,13 @@
-package examples.sorting;
+package org.algobench.examples.sorting;
 
-import discovery.AlgorithmScanner;
-import discovery.BenchmarkConfigResolver;
-import discovery.BenchmarkSettings;
+import org.algobench.discovery.AlgorithmScanner;
+import org.algobench.discovery.BenchmarkConfigResolver;
+import org.algobench.discovery.BenchmarkSettings;
 import org.algobench.api.Benchmark;
 import org.algobench.api.InputGenerator;
 import org.algobench.api.ResultValidator;
-import report.ConsoleReportFormatter;
-import runner.DefaultBenchmarkRunner;
+import org.algobench.report.ConsoleReportFormatter;
+import org.algobench.runner.DefaultBenchmarkRunner;
 
 import java.util.Random;
 
@@ -24,7 +24,7 @@ public class SortingExample {
         Benchmark<int[], int[]> benchmark = Benchmark.<int[], int[]>builder("Sorting Benchmark")
                 .addAlgorithms(
                         AlgorithmScanner.findAlgorithms(
-                                "examples.sorting",
+                                "org.algobench.examples.sorting",
                                 AbstractIntArraySortAlgorithm.class)
                 )
                 .inputGenerator(getInputGenerator())
