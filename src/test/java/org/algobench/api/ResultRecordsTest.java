@@ -65,6 +65,7 @@ class ResultRecordsTest {
         BenchmarkResult result = new BenchmarkResult("Benchmark", List.of(
                 new AlgorithmResult("Algo", List.of())
         ));
+
         //when
         assertThrows(UnsupportedOperationException.class, () ->
                 result.algorithmResults().add(new AlgorithmResult("Other", List.of()))
