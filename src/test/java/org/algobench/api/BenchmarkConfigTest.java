@@ -58,6 +58,7 @@ class BenchmarkConfigTest {
         BenchmarkConfig config = BenchmarkConfig.builder()
                 .sizes(List.of(100))
                 .build();
+
         //when
         assertThrows(UnsupportedOperationException.class, () ->
                 config.getSizes().add(1000)
