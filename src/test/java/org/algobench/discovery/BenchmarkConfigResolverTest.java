@@ -11,8 +11,9 @@ class BenchmarkConfigResolverTest {
 
     @Test
     void shouldResolveBenchmarkConfigFromAnnotation() {
+        //given then
         BenchmarkConfig config = BenchmarkConfigResolver.resolve(AnnotatedBenchmark.class);
-
+        //when
         assertEquals(2, config.getWarmupIterations());
         assertEquals(7, config.getMeasurementIterations());
         assertEquals(3, config.getForks());
@@ -21,8 +22,9 @@ class BenchmarkConfigResolverTest {
 
     @Test
     void shouldUseDefaultConfigWhenAnnotationIsMissing() {
+        //given then
         BenchmarkConfig config = BenchmarkConfigResolver.resolve(NotAnnotatedBenchmark.class);
-
+        //when
         assertEquals(5, config.getWarmupIterations());
         assertEquals(10, config.getMeasurementIterations());
         assertEquals(1, config.getForks());
@@ -31,8 +33,9 @@ class BenchmarkConfigResolverTest {
 
     @Test
     void shouldUseBenchmarkSettingsDefaultsWhenAnnotationHasNoValues() {
+        //given then
         BenchmarkConfig config = BenchmarkConfigResolver.resolve(DefaultAnnotatedBenchmark.class);
-
+        //when
         assertEquals(3, config.getWarmupIterations());
         assertEquals(5, config.getMeasurementIterations());
         assertEquals(5, config.getForks());
