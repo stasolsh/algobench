@@ -50,9 +50,11 @@ class BenchmarkConfigResolverTest {
     )
     private static class AnnotatedBenchmark {
     }
+
     @BenchmarkSettings
     private static class DefaultAnnotatedBenchmark {
     }
+
     private static class NotAnnotatedBenchmark {
     }
 }
