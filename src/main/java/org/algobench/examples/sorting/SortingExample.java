@@ -1,15 +1,14 @@
 package org.algobench.examples.sorting;
 
+import org.algobench.api.Benchmark;
 import org.algobench.discovery.AlgorithmScanner;
 import org.algobench.discovery.BenchmarkConfigResolver;
 import org.algobench.discovery.BenchmarkSettings;
-import org.algobench.api.Benchmark;
-import org.algobench.api.InputGenerator;
-import org.algobench.api.ResultValidator;
 import org.algobench.report.ConsoleReportFormatter;
 import org.algobench.runner.DefaultBenchmarkRunner;
 
-import java.util.Random;
+import static org.algobench.api.InputGeneratorImpl.getInputGenerator;
+import static org.algobench.api.ResultValidatorImpl.getResultValidator;
 
 
 @BenchmarkSettings(
@@ -19,42 +18,21 @@ import java.util.Random;
         sizes = {100, 1000, 3000}
 )
 public class SortingExample {
+    private static final String SORTING_BENCHMARK = "Sorting Benchmark";
+    private static final String PACKAGE_NAME = "org.algobench.examples.sorting";
 
     public static void main(String[] args) throws Exception {
-        Benchmark<int[], int[]> benchmark = Benchmark.<int[], int[]>builder("Sorting Benchmark")
-                .addAlgorithms(
-                        AlgorithmScanner.findAlgorithms(
-                                "org.algobench.examples.sorting",
-                                AbstractIntArraySortAlgorithm.class)
-                )
-                .inputGenerator(getInputGenerator())
-                .validator(getResultValidator())
-                .config(BenchmarkConfigResolver.resolve(SortingExample.class))
-                .build();
-
-        var result = new DefaultBenchmarkRunner().run(benchmark);
-        var formatter = new ConsoleReportFormatter();
-        System.out.println(formatter.format(result));
-    }
-
-    private static ResultValidator<int[], int[]> getResultValidator() {
-        return (input, output) -> {
-            for (int i = 1; i < output.length; i++) {
-                if (output[i - 1] > output[i]) {
-                    throw new IllegalStateException("Output is not sorted.");
-                }
-            }
-        };
-    }
-
-    private static InputGenerator<int[]> getInputGenerator() {
-        return ctx -> {
-            Random random = new Random(ctx.seed());
-            int[] arr = new int[ctx.size()];
-            for (int i = 0; i < arr.length; i++) {
-                arr[i] = random.nextInt();
-            }
-            return arr;
-        };
+        System.out.println(new ConsoleReportFormatter().format(new DefaultBenchmarkRunner().run(
+                Benchmark.<int[], int[]>builder(SORTING_BENCHMARK)
+                        .addAlgorithms(
+                                AlgorithmScanner.findAlgorithms(
+                                        PACKAGE_NAME,
+                                        AbstractIntArraySortAlgorithm.class)
+                        )
+                        .inputGenerator(getInputGenerator())
+                        .validator(getResultValidator())
+                        .config(BenchmarkConfigResolver.resolve(SortingExample.class))
+                        .build()
+        )));
     }
 }
