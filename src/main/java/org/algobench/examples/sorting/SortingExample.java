@@ -12,10 +12,10 @@ import static org.algobench.api.ResultValidatorImpl.getResultValidator;
 
 
 @BenchmarkSettings(
-        warmupIterations = 3,
-        measurementIterations = 5,
-        forks = 2,
-        sizes = {100, 1000, 3000}
+        warmupIterations = 10,
+        measurementIterations = 20,
+        forks = 3,
+        sizes = {100, 1000, 3000, 10000}
 )
 public class SortingExample {
     private static final String SORTING_BENCHMARK = "Sorting Benchmark";
