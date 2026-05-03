@@ -3,7 +3,7 @@ package org.algobench.examples.sorting;
 import org.algobench.discovery.BenchmarkAlgorithm;
 
 @BenchmarkAlgorithm
-public class BubbleSortAlgorithm extends AbstractIntArraySortAlgorithm {
+public final class BubbleSortAlgorithm extends AbstractIntArraySortAlgorithm {
 
     public BubbleSortAlgorithm() {
         super("BubbleSort");

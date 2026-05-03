@@ -298,6 +298,33 @@ No factory update is required.
 
 ---
 
+## Example Benchmark Result
+
+Configuration:
+
+- sizes: `100`, `1000`, `3000`, `10000`
+- runs per size: `30`
+
+```text
+Algorithm: Arrays.sort
+  size=100, runs=30, min=13700 ns, median=16000 ns, avg=23090 ns, max=212800 ns
+  size=1000, runs=30, min=35900 ns, median=48800 ns, avg=64290 ns, max=243500 ns
+  size=3000, runs=30, min=142000 ns, median=162800 ns, avg=165966 ns, max=215400 ns
+  size=10000, runs=30, min=545200 ns, median=667900 ns, avg=707293 ns, max=1233600 ns
+
+Algorithm: BubbleSort
+  size=100, runs=30, min=17800 ns, median=48900 ns, avg=67676 ns, max=142900 ns
+  size=1000, runs=30, min=593600 ns, median=673700 ns, avg=801480 ns, max=1299200 ns
+  size=3000, runs=30, min=4698200 ns, median=4819600 ns, avg=4863166 ns, max=5489700 ns
+  size=10000, runs=30, min=89858400 ns, median=91913700 ns, avg=92484243 ns, max=102395000 ns
+
+Algorithm: HeapSort
+  size=100, runs=30, min=7100 ns, median=9900 ns, avg=23943 ns, max=286500 ns
+  size=1000, runs=30, min=101200 ns, median=134700 ns, avg=132613 ns, max=202200 ns
+  size=3000, runs=30, min=205400 ns, median=225900 ns, avg=246573 ns, max=388900 ns
+  size=10000, runs=30, min=767700 ns, median=819700 ns, avg=858126 ns, max=1335900 ns
+
+```
 ## Notes
 
 This project is intended as a lightweight educational benchmarking framework.

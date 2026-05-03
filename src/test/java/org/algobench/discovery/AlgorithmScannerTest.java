@@ -25,7 +25,7 @@ class AlgorithmScannerTest {
                 .map(Algorithm::name)
                 .toList();
         //when
-        assertEquals(List.of("Arrays.sort", "BubbleSort", "HeapSort"), names);
+        assertEquals(List.of("Arrays.sort", "BubbleSort", "HeapSort", "SelectionSort", "ShellSort"), names);
     }
 
     @Test
